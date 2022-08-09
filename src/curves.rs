@@ -8,15 +8,13 @@ use ark_ec::{
 };
 use ark_ff::{field_new, Zero};
 
-// Note: All parameters have been commented in non-montgomery form
-
-pub type SWAffine = SWGroupAffine<GrumkinParameters>;
-pub type SWProjective = SWGroupProjective<GrumkinParameters>;
+pub type SWAffine = SWGroupAffine<GrumpkinParameters>;
+pub type SWProjective = SWGroupProjective<GrumpkinParameters>;
 
 #[derive(Clone, Default, PartialEq, Eq)]
-pub struct GrumkinParameters;
+pub struct GrumpkinParameters;
 
-impl ModelParameters for GrumkinParameters {
+impl ModelParameters for GrumpkinParameters {
     type BaseField = Fq;
     type ScalarField = Fr;
 }
@@ -31,7 +29,7 @@ const SW_GENERATOR_Y: Fq = field_new!(
     "17631683881184975370165255887551781615748388533673675138860"
 );
 
-impl SWModelParameters for GrumkinParameters {
+impl SWModelParameters for GrumpkinParameters {
     /// COEFF_A = 0
     const COEFF_A: Self::BaseField = field_new!(Fq, "0");
 
