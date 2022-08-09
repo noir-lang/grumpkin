@@ -6,7 +6,7 @@ use ark_ec::{
     },
     SWModelParameters,
 };
-use ark_ff::field_new;
+use ark_ff::{field_new, Zero};
 
 // Note: All parameters have been commented in non-montgomery form
 
@@ -47,4 +47,9 @@ impl SWModelParameters for GrumkinParameters {
     /// generators
     const AFFINE_GENERATOR_COEFFS: (Self::BaseField, Self::BaseField) =
         (SW_GENERATOR_X, SW_GENERATOR_Y);
+
+    #[inline(always)]
+    fn mul_by_a(_: &Self::BaseField) -> Self::BaseField {
+        Self::BaseField::zero()
+    }
 }
