@@ -1,5 +1,11 @@
-pub mod fq;
+#[cfg(feature = "scalar_field")]
 pub mod fr;
 
-pub use fq::*;
+#[cfg(feature = "scalar_field")]
 pub use fr::*;
+
+#[cfg(feature = "curve")]
+pub mod fq;
+
+#[cfg(feature = "curve")]
+pub use fq::*;
